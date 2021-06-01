@@ -2,7 +2,8 @@
 <html>
 <head>
 <meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
-<title>Документы</title><link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+
+<link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
 .mac-os-11 { --title-bar-height:28px; }
 html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
 body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
@@ -66,7 +67,7 @@ div.hr:focus { cursor: none; }
 #write pre.ty-contain-cm { white-space: normal; }
 .CodeMirror-gutters { margin-right: 4px; }
 .md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
-.md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
 #write .md-fences.mock-cm { white-space: pre-wrap; }
 .md-fences.md-fences-with-lineno { padding-left: 0px; }
 #write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
@@ -91,6 +92,7 @@ blockquote > :first-child, li > :first-child { margin-top: 0px; }
   .typora-export #write { break-after: avoid; }
   .typora-export #write::after { height: 0px; }
   .is-mac table { break-inside: avoid; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
 }
 .footnote-line { margin-top: 0.714em; font-size: 0.7em; }
 a img, img a { cursor: pointer; }
@@ -137,11 +139,12 @@ code { text-align: left; vertical-align: initial; }
 a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
 .md-inline-math .MathJax_SVG .noError { display: none !important; }
 .html-for-mac .inline-math-svg .MathJax_SVG { vertical-align: 0.2px; }
-.md-math-block .MathJax_SVG_Display { text-align: center; margin: 0px; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; overflow-y: hidden; display: block !important; }
+.md-fences-math .MathJax_SVG_Display, .md-math-block .MathJax_SVG_Display { text-align: center; margin: 0px; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; overflow-y: visible; display: block !important; }
 .MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
 .MathJax_SVG .MJX-monospace { font-family: var(--monospace); }
 .MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
-.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
+.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; zoom: 90%; }
+#math-inline-preview-content { zoom: 1.1; }
 .MathJax_SVG * { transition: none 0s ease 0s; }
 .MathJax_SVG_Display svg { vertical-align: middle !important; margin-bottom: 0px !important; margin-top: 0px !important; }
 .os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
@@ -154,7 +157,8 @@ iframe { max-width: 100%; width: 100%; border: none; }
 .highlight td, .highlight tr { border: 0px; }
 mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
 .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
-mark .md-meta { color: rgb(0, 0, 0); opacity: 0.3 !important; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
 @media print {
   .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
 }
@@ -162,6 +166,50 @@ mark .md-meta { color: rgb(0, 0, 0); opacity: 0.3 !important; }
 .md-diagram-panel .start-state { fill: var(--node-fill); }
 .md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
 .md-require-zoom-fix foreignobject { font-size: var(--mermaid-font-zoom); }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-math .MathJax_SVG_Display { margin-top: 8px; cursor: default; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex:2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
 
 
 :root {
@@ -349,7 +397,7 @@ table {
     word-break: initial;
 }
 table tr {
-    border-top: 1px solid #dfe2e5;
+    border: 1px solid #dfe2e5;
     margin: 0;
     padding: 0;
 }
@@ -523,9 +571,9 @@ header, .context-menu, .megamenu-content, footer{
     color: #b4654d;
 }
 
-.html-for-mac .context-menu {
+/*.html-for-mac {
     --item-hover-bg-color: #E6F0FE;
-}
+}*/
 
 #md-notification .btn {
     border: 0;
@@ -533,6 +581,7 @@ header, .context-menu, .megamenu-content, footer{
 
 .dropdown-menu .divider {
     border-color: #e5e5e5;
+    opacity: 0.4;
 }
 
 .ty-preferences .window-content {
@@ -543,6 +592,12 @@ header, .context-menu, .megamenu-content, footer{
     color: white;
     background: #999;
 }
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
+}
+
 
 /*
 .md-fences{
@@ -555,9 +610,31 @@ code {
   padding: 0.2em 0.4em;
   border-radius: 6px;
 }
-</style>
+
+[data-tooltip] {
+    position: relative; /* Относительное позиционирование */ 
+   }
+   [data-tooltip]::after {
+    content: attr(data-tooltip); /* Выводим текст */
+    position: absolute; /* Абсолютное позиционирование */
+    width: 600px;  /* Ширина подсказки */
+    left: 50%; top: 0; /* Положение подсказки */
+    background: #3989c9; /* Синий цвет фона */
+    color: #fff; /* Цвет текста */
+    padding: 0.5em; /* Поля вокруг текста */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Параметры тени */
+    pointer-events: none; /* Подсказка */
+    opacity: 0; /* Подсказка невидима */
+    transition: 1s; /* Время появления подсказки */
+    z-index: 5;
+   } 
+   [data-tooltip]:hover::after {
+    opacity: 1; /* Показываем подсказку */
+    top: 2em; /* Положение подсказки */
+   }
+</style><title>Документы</title>
 </head>
-<body class='typora-export os-windows'>
-<div id='write'  class=''><h1><a name="документы-по-организации-сессии" class="md-header-anchor"></a><span>Документы по организации сессии</span></h1><ol start='' ><li><p><a href='./2020.11.27 Приказ № 970.pdf'><span>Приказ №970 от 27.11.2020 О внесении изменений в приказ от 11.02.2020 №135 &quot;Об утверждении Порядка применения балльно-рейтинговой системы оценивания успеваемости обучающихся по программам ВО в ФГАОУ ВО &quot;КФУ им. В.И. Вернадского&quot; (с изменениями)</span></a><span>;</span></p><ul><li><p><a href='./2020.11.27 Приказ № 969.pdf'><span>Приказ №969 от 27.11.2020 О внесении изменений в приказ от 11.02.2020 №135 &quot;Об утверждении Порядка применения балльно-рейтинговой системы оценивания успеваемости обучающихся по программам ВО в ФГАОУ ВО &quot;КФУ им. В.И. Вернадского&quot; (с изменениями)</span></a><span>;</span></p><ul><li><p><a href='./2020.10.19 Приказ № 841.pdf'><span>Приказ №841 от 19.10.2020 О внесении изменений в приказ от 11.02.2020 №135 &quot;Об утверждении Порядка применения балльно-рейтинговой системы оценивания успеваемости обучающихся по программам ВО в ФГАОУ ВО &quot;КФУ им. В.И. Вернадского&quot;</span></a><span>;</span></p><ul><li><span style="color:#5cb85c"><strong><span>Действует с 01.09.2020!</span></strong></span><span> </span><a href='./2020.02.11 Приказ № 135.pdf'><span>Приказ №135 от 11.02.2020 Об утверждении Порядка применения </span><strong><span>балльно-рейтинговой системы</span></strong><span> оценивания успеваемости обучающихся по программам ВО в ФГАОУ ВО &quot;КФУ им. В.И. Вернадского&quot;</span></a><span>;</span></li></ul></li></ul></li></ul></li><li><p><a href='./2020.05.28 Приказ № 404.pdf'><span>Приказ №404 от 28.05.2020 О внесении изменений в приказ от 15.05.2020 №378 &quot;Об утверждении Временного порядка применения балльно-рейтинговой системы оценивания знаний обучающихся в ФГАОУ ВО &quot;КФУ им. В.И. Вернадского&quot;</span></a><span>;</span></p><ul><li><span style="color:#F44336"><strong><span>Действует до 31.08.2020!</span></strong></span><span> </span><a href='./2020.05.15 Приказ № 378.pdf'><span>Приказ №378 от 15.05.2020 Об утверждении Временного порядка применения </span><strong><span>балльно-рейтинговой системы</span></strong><span> оценивания знаний обучающихся в ФГАОУ ВО &quot;КФУ им. В.И. Вернадского&quot;</span></a><span>;</span></li></ul></li><li><p><a href='./2020.11.27 Приказ № 968.pdf'><span>Приказ №968 от 27.11.2020 О внесении изменений в приказ от 11.02.2020 №134 &#39;&#39;Об утверждении Положения о проведении текущего контроля успеваемости и промежуточной аттестации обучающихся по образовательным программам высшего образования в ФГАОУ ВО &quot;КФУ им. В.И. Вернадского&quot; (с изменениями)</span></a><span>;</span></p><ul><li><p><a href='./2020.10.19 Приказ № 840.pdf'><span>Приказ №840 от 19.10.2020 О внесении изменений в приказ от 11.02.2020 №134 &#39;&#39;Об утверждении Положения о проведении текущего контроля успеваемости и промежуточной аттестации обучающихся по образовательным программам высшего образования в ФГАОУ ВО &quot;КФУ им. В.И. Вернадского&quot;</span></a><span>;</span></p><ul><li><p><span style="color:#5cb85c"><strong><span>Действует!</span></strong></span><span> </span><a href='./2020.02.11 Приказ № 134.pdf'><span>Приказ №134 от 11.02.2020 Об утверждении Положения о проведении </span><strong><span>текущего контроля успеваемости и промежуточной аттестации</span></strong><span> обучающихся по образовательным программам высшего образования в ФГАОУ ВО &quot;КФУ им. В.И. Вернадского&quot;</span></a><span>;</span></p><ul><li><span style="color:#F44336"><strong><span>Утратил силу!</span></strong></span><span> </span><a href='./2017.01.12 Приказ № 3.pdf'><span>Приказ №3 от 12.01.2017 Об утверждении Положения о промежуточной аттестации обучающихся по основным профессиональным образовательным программам высшего образования - программам бакалавриата, программам специалитета, программам магистратуры в ФГАОУ ВО &quot;КФУ им. В.И. Вернадского&quot;</span></a><span>;</span></li></ul></li></ul></li></ul></li><li><p><span style="color:#F44336"><strong><span>Действует до 31.08.2020!</span></strong></span><span> </span><a href='./2020.04.23 Приказ № 332.pdf'><span>Приказ №332 от 23.04.2020 О внесении изменений в приказ от 31.12.2014 №74 &quot;Об утверждении Положения </span><strong><span>об электронном обучении</span></strong><span>, дистанционных образовательных технологиях при реализации образовательных программ в ФГАОУ ВО &quot;КФУ им. В.И. Вернадского&quot;</span></a><span>;</span></p><ul><li><p><a href='./2014.12.31 Приказ № 74.pdf'><span>Приказ №74 от 31.12.2014 &quot;Об утверждении Положения об электронном обучении, дистанционных образовательных технологиях при реализации образовательных программ в ФГАОУ ВО &quot;КФУ им. В.И. Вернадского&quot;</span></a><span>;</span></p><ul><li><a href='./2014.12.31 Приказ № 74 (приложение).pdf'><span>Приложение к приказу №74 от 31.12.2014. Положение об электронном обучении, дистанционных образовательных технологиях при реализации образовательных программ в ФГАОУ ВО &quot;КФУ им. В.И. Вернадского&quot;</span></a><span>;</span></li></ul></li></ul></li><li><p><a href='./2020.12.29 Приказ № 1077.pdf'><span>Приказ №1077 от 29.12.2020 Об утверждении </span><strong><span>Порядка отчисления</span></strong><span> обучающихся по основным профессиональным образовательным программам среднего профессионального и высшего образования в ФГАОУ ВО &quot;КФУ им. В.И. Вернадского&quot;</span></a><span>;</span></p></li><li><p><span style="color:#5cb85c"><strong><span>Действует!</span></strong></span><span> </span><a href='./2020.12.11 Приказ № 1025.pdf'><span>Приказ №1025 от 11.12.2020 Об утверждении Положения о </span><strong><span>государственной итоговой аттестации</span></strong><span> по основным профессиональным образовательным программам высшего образования - программам бакалавриата, программам специалитета, программам магистратуры в ФГАОУ ВО &quot;КФУ им. В.И. Вернадского&quot;</span></a><span>;</span></p><ul><li><span style="color:#F44336"><strong><span>Утратил силу!</span></strong></span><span> </span><a href='./2016.12.30 Приказ № 1231.pdf'><span>Приказ №1231 от 30.12.2016 Об утверждении Положения о государственной итоговой аттестации по образовательным программам высшего образования - программам бакалавриата, программам специалитета, программам магистратуры в ФГАОУ ВО &quot;КФУ им. В.И. Вернадского&quot;</span></a><span>;</span></li><li><a href='./2016.02.25 Приказ № 107.pdf'><span>Приказ №107 от 25.02.2016 Об утверждении Регламента использования системы </span><strong><span>&quot;Антиплагиат&quot;</span></strong><span> в ФГАОУ ВО &quot;КФУ им. В.И. Вернадского&quot;</span></a><span>;</span></li></ul></li><li><p><span style="color:#5cb85c"><strong><span>Действует!</span></strong></span><span> </span><a href='./2014.12.31 Приказ № 90.pdf'><span>Приказ №90 от 31.12.2014 Об утверждении Положения об организации </span><strong><span>самостоятельной работы</span></strong><span> обучающихся</span></a><span>;</span></p><ul><li><a href='./2014.12.31 Приказ № 90 (приложение).pdf'><span>Приложение к приказу №90 от 31.12.2014 Об утверждении Положения об организации самостоятельной работы обучающихся</span></a><span>;</span></li></ul></li><li><p><a href='./2020.10.27 Распоряжение № 80.pdf'><span>Распоряжение №80 от 27.10.2020 Об организации образовательного процесса в осеннем семестре 2020-2021 учебного года ФГАОУ ВО &quot;КФУ им. В.И. Вернадского в условиях предупреждения распространения новой короновирусной инфекции (COVID-19)&quot;</span></a><span>;</span></p></li><li><p><a href='./2020.09.14 Распоряжение № 12_14_14-ах.pdf'><span>Распоряжение №12/14/14-ах от 14.09.2020 О организации мероприятий текущего контроля в первом семестре 2020-2021 гг.</span></a><span>;</span></p></li></ol></div>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=''><h1 id='документы'><span>Документы</span></h1><ol start='' ><li><p><a href='./2020.11.27 Приказ № 970.pdf'><span>Приказ №970 от 27.11.2020 О внесении изменений в приказ от 11.02.2020 №135 &quot;Об утверждении Порядка применения балльно-рейтинговой системы оценивания успеваемости обучающихся по программам ВО в ФГАОУ ВО &quot;КФУ им. В.И. Вернадского&quot; (с изменениями)</span></a><span>;</span></p><ul><li><p><a href='./2020.11.27 Приказ № 969.pdf'><span>Приказ №969 от 27.11.2020 О внесении изменений в приказ от 11.02.2020 №135 &quot;Об утверждении Порядка применения балльно-рейтинговой системы оценивания успеваемости обучающихся по программам ВО в ФГАОУ ВО &quot;КФУ им. В.И. Вернадского&quot; (с изменениями)</span></a><span>;</span></p><ul><li><p><a href='./2020.10.19 Приказ № 841.pdf'><span>Приказ №841 от 19.10.2020 О внесении изменений в приказ от 11.02.2020 №135 &quot;Об утверждении Порядка применения балльно-рейтинговой системы оценивания успеваемости обучающихся по программам ВО в ФГАОУ ВО &quot;КФУ им. В.И. Вернадского&quot;</span></a><span>;</span></p><ul><li><span style="color:#5cb85c"><strong><span>Действует с 01.09.2020!</span></strong></span><span> </span><a href='./2020.02.11 Приказ № 135.pdf'><span>Приказ №135 от 11.02.2020 Об утверждении Порядка применения </span><strong><span>балльно-рейтинговой системы</span></strong><span> оценивания успеваемости обучающихся по программам ВО в ФГАОУ ВО &quot;КФУ им. В.И. Вернадского&quot;</span></a><span>;</span></li></ul></li></ul></li></ul></li><li><p><a href='./2020.05.28 Приказ № 404.pdf'><span>Приказ №404 от 28.05.2020 О внесении изменений в приказ от 15.05.2020 №378 &quot;Об утверждении Временного порядка применения балльно-рейтинговой системы оценивания знаний обучающихся в ФГАОУ ВО &quot;КФУ им. В.И. Вернадского&quot;</span></a><span>;</span></p><ul><li><span style="color:#F44336"><strong><span>Действует до 31.08.2020!</span></strong></span><span> </span><a href='./2020.05.15 Приказ № 378.pdf'><span>Приказ №378 от 15.05.2020 Об утверждении Временного порядка применения </span><strong><span>балльно-рейтинговой системы</span></strong><span> оценивания знаний обучающихся в ФГАОУ ВО &quot;КФУ им. В.И. Вернадского&quot;</span></a><span>;</span></li></ul></li><li><p><a href='./2020.11.27 Приказ № 968.pdf'><span>Приказ №968 от 27.11.2020 О внесении изменений в приказ от 11.02.2020 №134 &#39;&#39;Об утверждении Положения о проведении текущего контроля успеваемости и промежуточной аттестации обучающихся по образовательным программам высшего образования в ФГАОУ ВО &quot;КФУ им. В.И. Вернадского&quot; (с изменениями)</span></a><span>;</span></p><ul><li><p><a href='./2020.10.19 Приказ № 840.pdf'><span>Приказ №840 от 19.10.2020 О внесении изменений в приказ от 11.02.2020 №134 &#39;&#39;Об утверждении Положения о проведении текущего контроля успеваемости и промежуточной аттестации обучающихся по образовательным программам высшего образования в ФГАОУ ВО &quot;КФУ им. В.И. Вернадского&quot;</span></a><span>;</span></p><ul><li><p><span style="color:#5cb85c"><strong><span>Действует!</span></strong></span><span> </span><a href='./2020.02.11 Приказ № 134.pdf'><span>Приказ №134 от 11.02.2020 Об утверждении Положения о проведении </span><strong><span>текущего контроля успеваемости и промежуточной аттестации</span></strong><span> обучающихся по образовательным программам высшего образования в ФГАОУ ВО &quot;КФУ им. В.И. Вернадского&quot;</span></a><span>;</span></p><ul><li><span style="color:#F44336"><strong><span>Утратил силу!</span></strong></span><span> </span><a href='./2017.01.12 Приказ № 3.pdf'><span>Приказ №3 от 12.01.2017 Об утверждении Положения о промежуточной аттестации обучающихся по основным профессиональным образовательным программам высшего образования - программам бакалавриата, программам специалитета, программам магистратуры в ФГАОУ ВО &quot;КФУ им. В.И. Вернадского&quot;</span></a><span>;</span></li></ul></li></ul></li></ul></li><li><p><span style="color:#F44336"><strong><span>Действует до 31.08.2020!</span></strong></span><span> </span><a href='./2020.04.23 Приказ № 332.pdf'><span>Приказ №332 от 23.04.2020 О внесении изменений в приказ от 31.12.2014 №74 &quot;Об утверждении Положения </span><strong><span>об электронном обучении</span></strong><span>, дистанционных образовательных технологиях при реализации образовательных программ в ФГАОУ ВО &quot;КФУ им. В.И. Вернадского&quot;</span></a><span>;</span></p><ul><li><a href='./2014.12.31 Приказ № 74.pdf'><span>Приказ №74 от 31.12.2014 &quot;Об утверждении Положения об электронном обучении, дистанционных образовательных технологиях при реализации образовательных программ в ФГАОУ ВО &quot;КФУ им. В.И. Вернадского&quot;</span></a><span>; </span><strong><span>⇒</span></strong><span> </span><a href='./2014.12.31 Приказ № 74 (приложение).pdf'><span>Приложение</span></a><span>;</span></li></ul></li><li><p><a href='./2020.12.29 Приказ № 1077.pdf'><span>Приказ №1077 от 29.12.2020 Об утверждении </span><strong><span>Порядка отчисления</span></strong><span> обучающихся по основным профессиональным образовательным программам среднего профессионального и высшего образования в ФГАОУ ВО &quot;КФУ им. В.И. Вернадского&quot;</span></a><span>;</span></p></li><li><p><span style="color:#5cb85c"><strong><span>Действует!</span></strong></span><span> </span><a href='./2020.12.11 Приказ № 1025.pdf'><span>Приказ №1025 от 11.12.2020 Об утверждении Положения о </span><strong><span>государственной итоговой аттестации</span></strong><span> по основным профессиональным образовательным программам высшего образования - программам бакалавриата, программам специалитета, программам магистратуры в ФГАОУ ВО &quot;КФУ им. В.И. Вернадского&quot;</span></a><span>;</span></p><ul><li><span style="color:#F44336"><strong><span>Утратил силу!</span></strong></span><span> </span><a href='./2016.12.30 Приказ № 1231.pdf'><span>Приказ №1231 от 30.12.2016 Об утверждении Положения о государственной итоговой аттестации по образовательным программам высшего образования - программам бакалавриата, программам специалитета, программам магистратуры в ФГАОУ ВО &quot;КФУ им. В.И. Вернадского&quot;</span></a><span>;</span></li><li><a href='./2016.02.25 Приказ № 107.pdf'><span>Приказ №107 от 25.02.2016 Об утверждении Регламента использования системы </span><strong><span>&quot;Антиплагиат&quot;</span></strong><span> в ФГАОУ ВО &quot;КФУ им. В.И. Вернадского&quot;</span></a><span>;</span></li></ul></li><li><p><span style="color:#5cb85c"><strong><span>Действует!</span></strong></span><span> </span><a href='./2014.12.31 Приказ № 90.pdf'><span>Приказ №90 от 31.12.2014 Об утверждении Положения об организации </span><strong><span>самостоятельной работы</span></strong><span> обучающихся</span></a><span>; </span><strong><span>⇒</span></strong><span> </span><a href='./2014.12.31 Приказ № 90 (приложение).pdf'><span>Приложение</span></a><span>;</span></p></li><li><p><a href='./2021.05.26 Приказ № 440.pdf'><span>Приказ №440 от 26.05.2021 О внесении изменений в приказ от 29.12.2020 №1083 &quot;Об утверждении Положения о практической подготовке и практике обучающихся, осваивающих основные профессиональные образовательные программы высшего образования в ФГАОУ ВО &quot;КФУ им. В.И. Вернадского&quot; (с изменениями)</span></a><span>;</span></p><ul><li><p><span style="color:#5cb85c"><strong><span>Действует!</span></strong></span><span> </span><a href='./2020.12.29 Приказ № 1083.pdf'><span>Приказ №1083 от 29.12.2020 Об утверждении Положения о </span><strong><span>практической подготовке и практике</span></strong><span> обучающихся, осваивающих основные профессиональные образовательные программы высшего образования в ФГАОУ ВО &quot;КФУ им. В.И. Вернадского&quot;</span></a><span>;</span></p><ul><li><p><span style="color:#F44336"><strong><span>Утратил силу!</span></strong></span><span> </span><a href='./2016.02.29 Приказ № 132.pdf'><span>Приказ №132 от 29.02.2016 Об утверждении Положения о практике обучающихся, осваивающих основные профессиональные образовательные программы высшего образования в ФГАОУ ВО &quot;КФУ им. В.И. Вернадского&quot;</span></a><span>; </span><strong><span>⇒</span></strong><span> </span><a href='./2016.02.29 Приказ № 132 (приложение).pdf'><span>Приложение</span></a><span>;</span></p><ul><li><span style="color:#F44336"><strong><span>Утратил силу!</span></strong></span><span> </span><a href='./2014.12.31 Приказ № 93.pdf'><span>Приказ №93 от 31.12.2014 Об утверждении Положения об организации и проведении практик обучающихся в ФГАОУ ВО &quot;КФУ им. В.И. Вернадского&quot;</span></a><span>; </span><strong><span>⇒</span></strong><span> </span><a href='./2014.12.31 Приказ № 93 (приложение).pdf'><span>Приложение</span></a><span>;</span></li></ul></li></ul></li></ul></li><li><p><span style="color:#F44336"><strong><span>Утратил силу!</span></strong></span><span> </span><a href='./2020.10.27 Распоряжение № 80.pdf'><span>Распоряжение №80 от 27.10.2020 Об организации образовательного процесса в осеннем семестре 2020-2021 учебного года ФГАОУ ВО &quot;КФУ им. В.И. Вернадского в условиях предупреждения распространения новой короновирусной инфекции (COVID-19)&quot;</span></a><span>;</span></p></li><li><p><span style="color:#F44336"><strong><span>Утратил силу!</span></strong></span><span> </span><a href='./2020.09.14 Распоряжение № 12_14_14-ах.pdf'><span>Распоряжение №12/14/14-ах от 14.09.2020 О организации мероприятий текущего контроля в первом семестре 2020-2021 гг.</span></a><span>;</span></p></li></ol><p>&nbsp;</p></div></div>
 </body>
 </html>
